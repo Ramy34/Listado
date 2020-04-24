@@ -13,4 +13,7 @@
     <string name="automotriz">Automotive</string>
     <string name="alimenticio">Food</string>
     <string name="farmaceutico">Pharmacist</string>
+    <string name="error">Required data</string>
+    <string name="errorTel">Invalid number</string>
+    <string name="errorCor">Invalid email</string>
 </resources>

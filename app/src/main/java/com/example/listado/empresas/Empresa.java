@@ -3,10 +3,10 @@ package com.example.listado.empresas;
 import java.io.Serializable;
 
 public class Empresa implements Serializable {
-    private String nombre,correo, tipo;
-    private int telefono,id;
+    private String nombre,correo, tipo, telefono;
+    private int id;
 
-    public Empresa(String nombre, String correo, String tipo, int telefono, int id) {
+    public Empresa(String nombre, String correo, String tipo, String telefono, int id) {
         this.nombre = nombre;
         this.correo = correo;
         this.tipo = tipo;
@@ -38,11 +38,11 @@ public class Empresa implements Serializable {
         this.tipo = tipo;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

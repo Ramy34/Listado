@@ -12,4 +12,7 @@
     <string name="automotriz">Automotriz</string>
     <string name="alimenticio">Alimenticio</string>
     <string name="farmaceutico">Farmacéutico</string>
+    <string name="error">Dato necesario</string>
+    <string name="errorTel">Número inválido</string>
+    <string name="errorCor">Correo inválido</string>
 </resources>
