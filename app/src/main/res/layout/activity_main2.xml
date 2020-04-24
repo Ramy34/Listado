@@ -14,16 +14,18 @@
         android:layout_marginStart="99dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="99dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/nombre"
         android:inputType="textPersonName"
+        android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.13"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.13" />
 
     <EditText
         android:id="@+id/etCorreo"
@@ -32,17 +34,19 @@
         android:layout_marginStart="99dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="99dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/correo"
         android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:layout_constraintVertical_bias="0.514"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.444" />
 
     <EditText
         android:id="@+id/etTel"
@@ -50,29 +54,35 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
         android:layout_marginEnd="99dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/telefono"
         android:inputType="phone"
+        android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.571" />
 
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
+        android:id="@+id/sp"
+        android:layout_width="283dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginEnd="99dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <Button
         android:id="@+id/btnReg"
+        style="@style/Botones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -128,6 +138,7 @@
 
     <Button
         android:id="@+id/btnG"
+        style="@style/Botones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/guardar"

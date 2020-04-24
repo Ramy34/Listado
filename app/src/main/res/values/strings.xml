@@ -8,4 +8,8 @@
     <string name="correo">Correo Electrónico</string>
     <string name="telefono">Teléfono</string>
     <string name="guardar">Guardar</string>
+    <string name="entretenimiento">Entretenimiento</string>
+    <string name="automotriz">Automotriz</string>
+    <string name="alimenticio">Alimenticio</string>
+    <string name="farmaceutico">Farmacéutico</string>
 </resources>

@@ -9,4 +9,8 @@
     <string name="correo">Email</string>
     <string name="telefono">Phone</string>
     <string name="guardar">Save</string>
+    <string name="entretenimiento">Entertainment</string>
+    <string name="automotriz">Automotive</string>
+    <string name="alimenticio">Food</string>
+    <string name="farmaceutico">Pharmacist</string>
 </resources>
