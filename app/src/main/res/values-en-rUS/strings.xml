@@ -8,4 +8,5 @@
     <string name="nombre">Name</string>
     <string name="correo">Email</string>
     <string name="telefono">Phone</string>
+    <string name="guardar">Save</string>
 </resources>

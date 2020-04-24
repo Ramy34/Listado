@@ -7,4 +7,5 @@
     <string name="nombre">Nombre</string>
     <string name="correo">Correo Electrónico</string>
     <string name="telefono">Teléfono</string>
+    <string name="guardar">Guardar</string>
 </resources>
