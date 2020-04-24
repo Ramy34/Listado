@@ -3,4 +3,8 @@
     <string name="bienvenida">Bienvenido</string>
     <string name="registrar">Registrar</string>
     <string name="consultar">Consultar</string>
+    <string name="regresar">Regresar</string>
+    <string name="nombre">Nombre</string>
+    <string name="correo">Correo Electrónico</string>
+    <string name="telefono">Teléfono</string>
 </resources>

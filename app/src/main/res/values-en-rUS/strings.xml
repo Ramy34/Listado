@@ -4,4 +4,8 @@
     <string name="bienvenida">Welcome</string>
     <string name="registrar">Register</string>
     <string name="consultar">Consult</string>
+    <string name="regresar">Back</string>
+    <string name="nombre">Name</string>
+    <string name="correo">Email</string>
+    <string name="telefono">Phone</string>
 </resources>
