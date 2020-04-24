@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Listado</string>
+    <string name="bienvenida">Welcome</string>
+    <string name="registrar">Register</string>
+    <string name="consultar">Consult</string>
+</resources>
