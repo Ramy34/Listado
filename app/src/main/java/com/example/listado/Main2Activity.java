@@ -21,9 +21,7 @@ public class Main2Activity extends AppCompatActivity {
     Spinner sp;
     SharedPreferences spr;
     SharedPreferences.Editor editor;
-
     ArrayList<Empresa> arregloEmp = new ArrayList<Empresa>();
-
     int id;
 
     @Override
@@ -41,7 +39,7 @@ public class Main2Activity extends AppCompatActivity {
 
         spr = getPreferences(Context.MODE_PRIVATE);
         editor = spr.edit();
-        id =   spr.getInt("id", 1000);
+        id = spr.getInt("id", 1000);
 
         String[] opciones = {getResources().getString(R.string.alimenticio), getResources().getString(R.string.automotriz),
                 getResources().getString(R.string.entretenimiento), getResources().getString(R.string.farmaceutico)};
