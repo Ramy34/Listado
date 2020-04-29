@@ -15,4 +15,6 @@
     <string name="error">Dato necesario</string>
     <string name="errorTel">Número inválido</string>
     <string name="errorCor">Correo inválido</string>
+    <string name="correcto">Éxito al guardar</string>
+    <string name="tipo">Tipo</string>
 </resources>

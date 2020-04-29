@@ -6,7 +6,7 @@ public class Empresa implements Serializable {
     private String nombre,correo, tipo, telefono;
     private int id;
 
-    public Empresa(String nombre, String correo, String tipo, String telefono, int id) {
+    public Empresa( int id, String nombre, String correo, String tipo, String telefono) {
         this.nombre = nombre;
         this.correo = correo;
         this.tipo = tipo;

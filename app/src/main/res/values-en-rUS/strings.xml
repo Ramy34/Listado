@@ -16,4 +16,6 @@
     <string name="error">Required data</string>
     <string name="errorTel">Invalid number</string>
     <string name="errorCor">Invalid email</string>
+    <string name="correcto">Save success</string>
+    <string name="tipo">Type</string>
 </resources>
