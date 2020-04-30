@@ -25,4 +25,12 @@
     <string name="empresa">Register the company</string>
     <string name="borrar">Delete records</string>
     <string name="mensaje">Deleted records</string>
+    <string name="positivo">Back</string>
+    <string name="negativo">Register</string>
+    <string name="alDiaMen">There are no items to show</string>
+    <string name="importante">Important!</string>
+    <string name="si">Yes</string>
+    <string name="no">No</string>
+    <string name="pregunta">The records will be deleted. Do you want to continue?</string>
+    <string name="mensajeNo">Records not deleted</string>
 </resources>

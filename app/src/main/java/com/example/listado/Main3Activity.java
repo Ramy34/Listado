@@ -1,8 +1,11 @@
 package com.example.listado;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +40,8 @@ public class Main3Activity extends AppCompatActivity {
         ida = spr.getInt("identificador", 1000);
         obtenerDatos();
 
+        mostrarDialogo(ida);
+
         Adaptador adaptador = new Adaptador(Main3Activity.this, arregloEmp);
         lv.setAdapter(adaptador);
 
@@ -46,6 +51,30 @@ public class Main3Activity extends AppCompatActivity {
                 Toast.makeText(Main3Activity.this, getResources().getString(R.string.toastMensaje) + id, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void mostrarDialogo(int ida) {
+        if(ida == 1000){
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.importante)
+                    .setMessage(R.string.alDiaMen)
+                    .setPositiveButton(R.string.positivo, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    })
+                    .setNegativeButton(R.string.negativo, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(Main3Activity.this, Main2Activity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }).show();
+
+        }
+
     }
 
     private void obtenerDatos(){

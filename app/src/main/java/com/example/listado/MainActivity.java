@@ -1,7 +1,9 @@
 package com.example.listado;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
         btnBor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.clear();
-                editor.commit();
-                Toast.makeText(MainActivity.this, R.string.mensaje,Toast.LENGTH_SHORT).show();
+                mostrarDialogo();
             }
         });
 
@@ -55,5 +55,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void mostrarDialogo() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.importante)
+                .setMessage(R.string.pregunta)
+                .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        editor.clear();
+                        editor.commit();
+                        Toast.makeText(MainActivity.this, R.string.mensaje,Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, R.string.mensajeNo, Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
     }
 }
