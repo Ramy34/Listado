@@ -1,6 +1,7 @@
 package com.example.listado;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class Adaptador extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
+    MediaPlayer mp;
     Context context;
     ArrayList<Empresa> datos;
 
@@ -40,7 +42,7 @@ public class Adaptador extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final View vista = inflater.inflate(R.layout.elemento_lista,null);
         TextView tvNombre = vista.findViewById(R.id.tvNombre);
         TextView tvCorreo = vista.findViewById(R.id.tvCorreo);
@@ -55,7 +57,38 @@ public class Adaptador extends BaseAdapter {
 
         imagen(datos.get(position).getTipo(), imV);
 
+        imV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sonar(datos.get(position).getTipo());
+            }
+        });
+
         return vista;
+    }
+
+    private void sonar(String tipo) {
+        int id_tipos = idTipos(tipo);
+        switch (id_tipos){
+            case 0:
+                mp = MediaPlayer.create(context, R.raw.alimenticio);
+                break;
+            case 1:
+                mp = MediaPlayer.create(context, R.raw.carreras);
+                break;
+            case 2:
+                mp = MediaPlayer.create(context, R.raw.cine);
+                break;
+            case 3:
+                mp = MediaPlayer.create(context, R.raw.farmaceutico);
+                break;
+            case 4:
+                mp = MediaPlayer.create(context, R.raw.maquina);
+                break;
+            default:
+                break;
+        }
+        mp.start();
     }
 
     private void imagen(String tipo, ImageView imV) {
