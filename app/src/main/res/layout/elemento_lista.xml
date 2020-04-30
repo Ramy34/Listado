@@ -7,9 +7,10 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imV"
         android:layout_width="91dp"
         android:layout_height="90dp"
+        android:contentDescription="@string/imageView"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,8 +77,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
-        app:layout_constraintTop_toBottomOf="@+id/tvTel" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTel"
+        app:layout_constraintVertical_bias="0.538" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"

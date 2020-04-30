@@ -20,4 +20,5 @@
     <string name="tipo">Type</string>
     <string name="archivo">datos.txt</string>
     <string name="imageView">No content</string>
+    <string name="toastMensaje">"The company id is: "</string>
 </resources>

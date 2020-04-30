@@ -22,7 +22,7 @@ public class Main3Activity extends AppCompatActivity {
     SharedPreferences spr;
     SharedPreferences.Editor editor;
     ArrayList<Empresa> arregloEmp = new ArrayList<Empresa>();
-    int id;
+    int ida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class Main3Activity extends AppCompatActivity {
         spr = getSharedPreferences(getResources().getString(R.string.archivo),MODE_PRIVATE);
         editor = spr.edit();
 
-        id = spr.getInt("id", 1000);
+        ida = spr.getInt("id", 1000);
         obtenerDatos();
         mostrarArreglo();
 
@@ -44,21 +44,23 @@ public class Main3Activity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(Main3Activity.this, "El id de la empresa es: " + id, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Main3Activity.this, getResources().getString(R.string.toastMensaje) + id, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void obtenerDatos(){
         String nombre, correo, tipo,telefono;
-        if(id !=1000){
-            int numElementos = id - 1000;
+        int id;
+        if(ida !=1000){
+            int numElementos = ida - 1000;
             for(int i = 0; i < numElementos; i++){
                 nombre = spr.getString("nombre" + i, getResources().getString(R.string.nombre));
                 correo = spr.getString("correo" + i,getResources().getString(R.string.correo));
                 tipo = spr.getString("tipo" + i,getResources().getString(R.string.tipo));
                 telefono = spr.getString("telefono",getResources().getString(R.string.telefono));
-                Empresa emp = new Empresa(1000 + i, nombre, correo, tipo, telefono);
+                id  = spr.getInt("id" + i, 1000);
+                Empresa emp = new Empresa(id, nombre, correo, tipo, telefono);
                 arregloEmp.add(emp);
             }
         }
@@ -68,7 +70,7 @@ public class Main3Activity extends AppCompatActivity {
         int tamano = arregloEmp.size();
         Log.d("TAMANO","El tamano del array es de: " + arregloEmp.size());
         for(int i=0; i < tamano; i++){
-            Log.d("TAMANO","El nombre de la empresa es: " + arregloEmp.get(i).getNombre());
+            Log.d("TAMANO","El id es: " + arregloEmp.get(i).getId());
         }
     }
 }

@@ -19,4 +19,5 @@
     <string name="tipo">Tipo</string>
     <string name="archivo">datos.txt</string>
     <string name="imageView">Sin contenido</string>
+    <string name="toastMensaje">"El id de la empresa es: "</string>
 </resources>

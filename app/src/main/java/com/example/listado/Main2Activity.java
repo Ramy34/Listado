@@ -57,8 +57,8 @@ public class Main2Activity extends AppCompatActivity {
                 String telefono = etTel.getText().toString();
                 if(validarDatos(nombre, correo, telefono)){
                     String tipo = sp.getSelectedItem().toString();
-                    arregloEmp.add(new Empresa(id+1, nombre, correo, tipo, telefono));
                     id = id+1;
+                    arregloEmp.add(new Empresa(id, nombre, correo, tipo, telefono));
                     Toast.makeText(Main2Activity.this,getResources().getString(R.string.correcto), Toast.LENGTH_SHORT).show();
                     borrarCampos();
                 }
@@ -81,10 +81,9 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     private void mostrarArreglo(){
-        //Log.d("AYUDA","El arreglo tiene: " +  ((Object)arregloEmp).getClass().getSimpleName());
         int tamano = arregloEmp.size();
         for(int i=0; i < tamano; i++){
-            Log.d("TAMANO","El nombre de la empresa es: " + arregloEmp.get(i).getNombre());
+            Log.d("TAMANO","El id es: " + arregloEmp.get(i).getId());
         }
     }
 
