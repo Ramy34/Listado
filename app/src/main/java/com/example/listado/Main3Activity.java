@@ -36,7 +36,6 @@ public class Main3Activity extends AppCompatActivity {
 
         ida = spr.getInt("identificador", 1000);
         obtenerDatos();
-        mostrarArreglo();
 
         Adaptador adaptador = new Adaptador(Main3Activity.this, arregloEmp);
         lv.setAdapter(adaptador);
@@ -67,11 +66,4 @@ public class Main3Activity extends AppCompatActivity {
         }
     }
 
-    private void mostrarArreglo(){
-        int tamano = arregloEmp.size();
-        Log.d("TAMANO","El tamano del array es de: " + arregloEmp.size());
-        for(int i=0; i < tamano; i++){
-            Log.d("TAMANO","El id es: " + arregloEmp.get(i).getId());
-        }
-    }
 }

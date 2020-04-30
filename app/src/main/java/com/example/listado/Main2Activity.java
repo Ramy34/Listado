@@ -40,7 +40,6 @@ public class Main2Activity extends AppCompatActivity {
         editor = spr.edit();
         id = spr.getInt("identificador", 1000);
         obtenerDatos();
-        Log.d("TAMANO","El id es: " + id);
 
         String[] opciones = {getResources().getString(R.string.alimenticio), getResources().getString(R.string.automotriz),
                 getResources().getString(R.string.entretenimiento), getResources().getString(R.string.farmaceutico)};
@@ -68,20 +67,9 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 guardarDatos(arregloEmp, id);
-                mostrarArreglo();
                 finish();
             }
         });
-    }
-
-    private void mostrarArreglo(){
-        int tamano = arregloEmp.size();
-        for(int i=0; i < tamano; i++){
-            Log.d("TAMANO","El id es: " + arregloEmp.get(i).getId());
-            Log.d("TAMANO","El correo es: " + arregloEmp.get(i).getCorreo());
-            Log.d("TAMANO","El teléfono es: " + arregloEmp.get(i).getTelefono());
-            Log.d("TAMANO","El tipo es: " + arregloEmp.get(i).getTipo());
-        }
     }
 
     private void borrarCampos(){
@@ -141,4 +129,13 @@ public class Main2Activity extends AppCompatActivity {
         return true;
     }
 
+    /*private void mostrarArreglo(){
+        int tamano = arregloEmp.size();
+        for(int i=0; i < tamano; i++){
+            Log.d("TAMANO","El id es: " + arregloEmp.get(i).getId());
+            Log.d("TAMANO","El correo es: " + arregloEmp.get(i).getCorreo());
+            Log.d("TAMANO","El teléfono es: " + arregloEmp.get(i).getTelefono());
+            Log.d("TAMANO","El tipo es: " + arregloEmp.get(i).getTipo());
+        }
+    }*/
 }

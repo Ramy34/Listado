@@ -5,7 +5,7 @@
     <string name="registrar">Register</string>
     <string name="consultar">Consult</string>
     <string name="regresar">Back</string>
-    <string name="nombre">Name</string>
+    <string name="nombre">Company name</string>
     <string name="correo">Email</string>
     <string name="telefono">Phone</string>
     <string name="guardar">Save</string>
