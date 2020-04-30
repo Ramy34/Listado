@@ -34,7 +34,7 @@ public class Main3Activity extends AppCompatActivity {
         spr = getSharedPreferences(getResources().getString(R.string.archivo),MODE_PRIVATE);
         editor = spr.edit();
 
-        ida = spr.getInt("id", 1000);
+        ida = spr.getInt("identificador", 1000);
         obtenerDatos();
         mostrarArreglo();
 
@@ -50,18 +50,19 @@ public class Main3Activity extends AppCompatActivity {
     }
 
     private void obtenerDatos(){
-        String nombre, correo, tipo,telefono;
-        int id;
+        String nombre, correo, tipo, telefono;
+        int identificador;
         if(ida !=1000){
-            int numElementos = ida - 1000;
-            for(int i = 0; i < numElementos; i++){
+            int numElementos = ida- 1000;
+            for(int i=0; i<numElementos; i++){
+                identificador = spr.getInt("id" + i,1000);
                 nombre = spr.getString("nombre" + i, getResources().getString(R.string.nombre));
                 correo = spr.getString("correo" + i,getResources().getString(R.string.correo));
                 tipo = spr.getString("tipo" + i,getResources().getString(R.string.tipo));
-                telefono = spr.getString("telefono",getResources().getString(R.string.telefono));
-                id  = spr.getInt("id" + i, 1000);
-                Empresa emp = new Empresa(id, nombre, correo, tipo, telefono);
+                telefono = spr.getString("telefono" + i, getResources().getString(R.string.telefono));
+                Empresa emp = new Empresa(identificador, nombre, correo, tipo, telefono);
                 arregloEmp.add(emp);
+
             }
         }
     }

@@ -20,4 +20,8 @@
     <string name="archivo">datos.txt</string>
     <string name="imageView">Sin contenido</string>
     <string name="toastMensaje">"El id de la empresa es: "</string>
+    <string name="ingresar">Ingresa tu nombre</string>
+    <string name="empresa">Registra la empresa</string>
+    <string name="borrar">Borrar registros</string>
+    <string name="mensaje">Registros borrados</string>
 </resources>

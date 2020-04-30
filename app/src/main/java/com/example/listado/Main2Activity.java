@@ -2,8 +2,6 @@ package com.example.listado;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,11 +38,12 @@ public class Main2Activity extends AppCompatActivity {
 
         spr = getSharedPreferences(getResources().getString(R.string.archivo),MODE_PRIVATE);
         editor = spr.edit();
-        id = spr.getInt("id", 1000);
+        id = spr.getInt("identificador", 1000);
+        obtenerDatos();
+        Log.d("TAMANO","El id es: " + id);
 
         String[] opciones = {getResources().getString(R.string.alimenticio), getResources().getString(R.string.automotriz),
                 getResources().getString(R.string.entretenimiento), getResources().getString(R.string.farmaceutico)};
-        obtenerDatos();
 
         ArrayAdapter <String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item_layout, opciones);
         sp.setAdapter(adapter);
@@ -57,9 +56,9 @@ public class Main2Activity extends AppCompatActivity {
                 String telefono = etTel.getText().toString();
                 if(validarDatos(nombre, correo, telefono)){
                     String tipo = sp.getSelectedItem().toString();
-                    id = id+1;
-                    arregloEmp.add(new Empresa(id, nombre, correo, tipo, telefono));
+                    arregloEmp.add(new Empresa(id+1, nombre, correo, tipo, telefono));
                     Toast.makeText(Main2Activity.this,getResources().getString(R.string.correcto), Toast.LENGTH_SHORT).show();
+                    id = id+1;
                     borrarCampos();
                 }
             }
@@ -70,11 +69,6 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 guardarDatos(arregloEmp, id);
                 mostrarArreglo();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("datos",arregloEmp);
-                Intent intent = new Intent(Main2Activity.this, MainActivity.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
                 finish();
             }
         });
@@ -84,6 +78,9 @@ public class Main2Activity extends AppCompatActivity {
         int tamano = arregloEmp.size();
         for(int i=0; i < tamano; i++){
             Log.d("TAMANO","El id es: " + arregloEmp.get(i).getId());
+            Log.d("TAMANO","El correo es: " + arregloEmp.get(i).getCorreo());
+            Log.d("TAMANO","El teléfono es: " + arregloEmp.get(i).getTelefono());
+            Log.d("TAMANO","El tipo es: " + arregloEmp.get(i).getTipo());
         }
     }
 
@@ -102,21 +99,26 @@ public class Main2Activity extends AppCompatActivity {
             editor.putString("correo" + i, emp.getCorreo());
             editor.putString("tipo" + i, emp.getTipo());
             editor.putString("telefono" + i, emp.getTelefono());
+            editor.commit();
         }
-        editor.putInt("id",id);
+        editor.putInt("identificador",id);
         editor.commit();
     }
 
     private void obtenerDatos(){
-        String nombre, correo, tipo,telefono;
+        String nombre, correo, tipo, telefono;
+        int identificador;
         if(id !=1000){
             int numElementos = id - 1000;
             for(int i=0; i<numElementos; i++){
+                identificador = spr.getInt("id" + i,1000);
                 nombre = spr.getString("nombre" + i, getResources().getString(R.string.nombre));
                 correo = spr.getString("correo" + i,getResources().getString(R.string.correo));
                 tipo = spr.getString("tipo" + i,getResources().getString(R.string.tipo));
-                telefono = spr.getString("telefono",getResources().getString(R.string.telefono));
-                Empresa emp = new Empresa(1000+i, nombre, correo, tipo, telefono);
+                telefono = spr.getString("telefono" + i, getResources().getString(R.string.telefono));
+                Log.d("TAMANO","El teléfono en obtener Datos es: " + telefono);
+                //telefono = spr.getString("telefono",getResources().getString(R.string.telefono));
+                Empresa emp = new Empresa(identificador, nombre, correo, tipo, telefono);
                 arregloEmp.add(emp);
 
             }
@@ -138,4 +140,5 @@ public class Main2Activity extends AppCompatActivity {
         }
         return true;
     }
+
 }

@@ -21,4 +21,8 @@
     <string name="archivo">datos.txt</string>
     <string name="imageView">No content</string>
     <string name="toastMensaje">"The company id is: "</string>
+    <string name="ingresar">Enter your name</string>
+    <string name="empresa">Register the company</string>
+    <string name="borrar">Delete records</string>
+    <string name="mensaje">Deleted records</string>
 </resources>
