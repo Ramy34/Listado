@@ -32,4 +32,5 @@
     <string name="no">No</string>
     <string name="pregunta">Se van a eliminar los registros. ¿Deseas continuar?</string>
     <string name="mensajeNo">No se borraron los registros</string>
+    <string name="maquina">maquina</string>
 </resources>

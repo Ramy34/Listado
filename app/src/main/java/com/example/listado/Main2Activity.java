@@ -3,6 +3,7 @@ package com.example.listado;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 public class Main2Activity extends AppCompatActivity {
     Button btnG, btnReg;
     EditText etNom, etCor, etTel;
+    MediaPlayer mp;
     Spinner sp;
     SharedPreferences spr;
     SharedPreferences.Editor editor;
@@ -58,6 +60,7 @@ public class Main2Activity extends AppCompatActivity {
                     arregloEmp.add(new Empresa(id+1, nombre, correo, tipo, telefono));
                     Toast.makeText(Main2Activity.this,getResources().getString(R.string.correcto), Toast.LENGTH_SHORT).show();
                     id = id+1;
+                    sonar(tipo);
                     borrarCampos();
                 }
             }
@@ -67,9 +70,46 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 guardarDatos(arregloEmp, id);
+                sonar(getResources().getString(R.string.maquina));
                 finish();
             }
         });
+    }
+
+    private void sonar(String tipo) {
+        int id_tipos = idTipos(tipo);
+        switch (id_tipos){
+            case 0:
+                mp = MediaPlayer.create(this, R.raw.alimenticio);
+                break;
+            case 1:
+                mp = MediaPlayer.create(this, R.raw.carreras);
+                break;
+            case 2:
+                mp = MediaPlayer.create(this, R.raw.cine);
+                break;
+            case 3:
+                mp = MediaPlayer.create(this, R.raw.farmaceutico);
+                break;
+            case 4:
+                mp = MediaPlayer.create(this, R.raw.maquina);
+                break;
+            default:
+                break;
+        }
+        mp.start();
+    }
+
+    private int idTipos(String tipo) {
+        String[] tipos = { getResources().getString(R.string.alimenticio), getResources().getString(R.string.automotriz),
+                getResources().getString(R.string.entretenimiento), getResources().getString(R.string.farmaceutico),
+        getResources().getString(R.string.maquina)};
+        for(int i = 0; i <= tipos.length;i++){
+            if(tipo.toLowerCase().equals(tipos[i].toLowerCase())){
+                return i;
+            }
+        }
+        return -1;
     }
 
     private void borrarCampos(){
@@ -104,8 +144,6 @@ public class Main2Activity extends AppCompatActivity {
                 correo = spr.getString("correo" + i,getResources().getString(R.string.correo));
                 tipo = spr.getString("tipo" + i,getResources().getString(R.string.tipo));
                 telefono = spr.getString("telefono" + i, getResources().getString(R.string.telefono));
-                Log.d("TAMANO","El teléfono en obtener Datos es: " + telefono);
-                //telefono = spr.getString("telefono",getResources().getString(R.string.telefono));
                 Empresa emp = new Empresa(identificador, nombre, correo, tipo, telefono);
                 arregloEmp.add(emp);
 

@@ -33,4 +33,5 @@
     <string name="no">No</string>
     <string name="pregunta">The records will be deleted. Do you want to continue?</string>
     <string name="mensajeNo">Records not deleted</string>
+    <string name="maquina">machine</string>
 </resources>

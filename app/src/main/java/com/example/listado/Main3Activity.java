@@ -72,9 +72,7 @@ public class Main3Activity extends AppCompatActivity {
                             finish();
                         }
                     }).show();
-
         }
-
     }
 
     private void obtenerDatos(){
