@@ -3,6 +3,7 @@ package com.example.listado;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,7 +38,7 @@ public class Main2Activity extends AppCompatActivity {
         btnReg = findViewById(R.id.btnReg);
         sp = findViewById(R.id.sp);
 
-        spr = getPreferences(Context.MODE_PRIVATE);
+        spr = getSharedPreferences(getResources().getString(R.string.archivo),MODE_PRIVATE);
         editor = spr.edit();
         id = spr.getInt("id", 1000);
 
@@ -69,6 +70,11 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 guardarDatos(arregloEmp, id);
                 mostrarArreglo();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("datos",arregloEmp);
+                Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
                 finish();
             }
         });
@@ -78,7 +84,7 @@ public class Main2Activity extends AppCompatActivity {
         //Log.d("AYUDA","El arreglo tiene: " +  ((Object)arregloEmp).getClass().getSimpleName());
         int tamano = arregloEmp.size();
         for(int i=0; i < tamano; i++){
-            Log.d("AYUDA","El nombre de la empresa es: " + arregloEmp.get(i).getNombre());
+            Log.d("TAMANO","El nombre de la empresa es: " + arregloEmp.get(i).getNombre());
         }
     }
 

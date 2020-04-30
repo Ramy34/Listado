@@ -6,7 +6,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.listado.empresas.Empresa;
 
@@ -27,15 +31,22 @@ public class Main3Activity extends AppCompatActivity {
 
         lv = findViewById(R.id.lv);
 
-        spr = getPreferences(Context.MODE_PRIVATE);
+        spr = getSharedPreferences(getResources().getString(R.string.archivo),MODE_PRIVATE);
         editor = spr.edit();
 
         id = spr.getInt("id", 1000);
         obtenerDatos();
         mostrarArreglo();
 
-        Adaptador adaptador = new Adaptador(this, arregloEmp);
+        Adaptador adaptador = new Adaptador(Main3Activity.this, arregloEmp);
         lv.setAdapter(adaptador);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(Main3Activity.this, "El id de la empresa es: " + id, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void obtenerDatos(){
@@ -52,12 +63,12 @@ public class Main3Activity extends AppCompatActivity {
             }
         }
     }
+
     private void mostrarArreglo(){
-        //Log.d("AYUDA","El arreglo tiene: " +  ((Object)arregloEmp).getClass().getSimpleName());
         int tamano = arregloEmp.size();
-        Log.d("HELP","El tamano del array es de: " + arregloEmp.size());
+        Log.d("TAMANO","El tamano del array es de: " + arregloEmp.size());
         for(int i=0; i < tamano; i++){
-            Log.d("HELP","El nombre de la empresa es: " + arregloEmp.get(i).getNombre());
+            Log.d("TAMANO","El nombre de la empresa es: " + arregloEmp.get(i).getNombre());
         }
     }
 }

@@ -17,4 +17,6 @@
     <string name="errorCor">Correo inválido</string>
     <string name="correcto">Éxito al guardar</string>
     <string name="tipo">Tipo</string>
+    <string name="archivo">datos.txt</string>
+    <string name="imageView">Sin contenido</string>
 </resources>

@@ -51,6 +51,6 @@ public class Adaptador extends BaseAdapter {
         tvTelefono.setText(datos.get(position).getTelefono());
         tvTipo.setText(datos.get(position).getTipo());
 
-        return null;
+        return vista;
     }
 }

@@ -2,7 +2,7 @@ package com.example.listado.empresas;
 
 import java.io.Serializable;
 
-public class Empresa implements Serializable {
+public class Empresa implements Serializable{
     private String nombre,correo, tipo, telefono;
     private int id;
 

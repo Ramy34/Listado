@@ -18,4 +18,6 @@
     <string name="errorCor">Invalid email</string>
     <string name="correcto">Save success</string>
     <string name="tipo">Type</string>
+    <string name="archivo">datos.txt</string>
+    <string name="imageView">No content</string>
 </resources>

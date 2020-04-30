@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.listado.empresas.Empresa;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnR, btnC;
