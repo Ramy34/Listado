@@ -35,3 +35,8 @@ Así también, la aplicación deberá mostrar un botón para que al final se pue
 Para lo anterior, se debe crear también un prototipo de celda personalizado con lo que el desarrollador considere necesario, pero que tenga por lo menos un elemento de imagen (ImageView) que cambie con respecto a lo que el usuario capturó con el Spinner. Ejemplo: para el caso de los automóviles pueden mostrar ahí el logo de la marca o en el caso de las películas alguna imagen referente al género de cada película. 
 
 Finalmente, al dar clic en algún elemento del listado se deberá mandar llamar un mensaje Toast que indique el ID del elemento seleccionado. Ejemplo: “El elemento seleccionado tiene el ID: 2354”.
+
+Extras que se agregaron:
+
+    Sonidos en los botones en el registro de empresas y en el listado al presionar el imageView.
+    La opción de borrar todos los registros hechos.
