@@ -40,5 +40,5 @@ Extras que se agregaron:
 
     Sonidos en los botones en el registro de empresas y en el listado al presionar el imageView.
     La opción de borrar todos los registros hechos.
-	Existen diversos AletDialog para confirmar acciones.
+	Existen diversos AlertDialog para confirmar acciones.
 	Está la opción de modificar los datos de cualquier empresa.
