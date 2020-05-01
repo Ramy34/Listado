@@ -13,8 +13,6 @@
         android:contentDescription="@string/imageView"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
-        app:layout_constraintHorizontal_bias="0.727"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/entretenimiento" />
@@ -24,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="113dp" />
+        app:layout_constraintGuide_begin="93dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
@@ -35,53 +33,50 @@
 
     <TextView
         android:id="@+id/tvNombre"
-        android:layout_width="254dp"
-        android:layout_height="26dp"
+        android:layout_width="230dp"
+        android:layout_height="25dp"
         android:text="@string/nombre"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
     <TextView
         android:id="@+id/tvCorreo"
-        android:layout_width="255dp"
+        android:layout_width="230dp"
         android:layout_height="24dp"
         android:contentDescription="@string/imageView"
         android:text="@string/correo"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
 
     <TextView
         android:id="@+id/tvTel"
-        android:layout_width="253dp"
-        android:layout_height="22dp"
+        android:layout_width="230dp"
+        android:layout_height="24dp"
         android:text="@string/telefono"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toBottomOf="@+id/tvCorreo" />
 
     <TextView
         android:id="@+id/tvTipo"
-        android:layout_width="254dp"
+        android:layout_width="231dp"
         android:layout_height="23dp"
         android:text="@string/tipo"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toBottomOf="@+id/tvTel"
         app:layout_constraintVertical_bias="0.0" />
@@ -92,4 +87,22 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="102dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="345dp" />
+
+    <ImageView
+        android:id="@+id/imViConf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_preferences" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,4 +33,7 @@
     <string name="pregunta">Se van a eliminar los registros. ¿Deseas continuar?</string>
     <string name="mensajeNo">No se borraron los registros</string>
     <string name="maquina">maquina</string>
+    <string name="editar">¿Deseas modificar el registro?</string>
+    <string name="modificar">Modificar elemento</string>
+    <string name="eliminar">Eliminar registro</string>
 </resources>

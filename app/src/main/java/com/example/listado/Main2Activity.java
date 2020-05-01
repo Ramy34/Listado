@@ -2,6 +2,7 @@ package com.example.listado;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ public class Main2Activity extends AppCompatActivity {
     Spinner sp;
     SharedPreferences spr;
     SharedPreferences.Editor editor;
+    Empresa emp;
     ArrayList<Empresa> arregloEmp = new ArrayList<Empresa>();
     int id;
 
@@ -38,6 +40,8 @@ public class Main2Activity extends AppCompatActivity {
         btnReg = findViewById(R.id.btnReg);
         sp = findViewById(R.id.sp);
 
+        final int iden = getIntent().getIntExtra("id",0);
+
         spr = getSharedPreferences(getResources().getString(R.string.archivo),MODE_PRIVATE);
         editor = spr.edit();
         id = spr.getInt("identificador", 1000);
@@ -49,6 +53,8 @@ public class Main2Activity extends AppCompatActivity {
         ArrayAdapter <String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item_layout, opciones);
         sp.setAdapter(adapter);
 
+        cargarDatos(iden);
+
         btnG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,9 +63,15 @@ public class Main2Activity extends AppCompatActivity {
                 String telefono = etTel.getText().toString();
                 if(validarDatos(nombre, correo, telefono)){
                     String tipo = sp.getSelectedItem().toString();
-                    arregloEmp.add(new Empresa(id+1, nombre, correo, tipo, telefono));
+                    if(iden != 0){
+                        emp = new Empresa(iden, nombre, correo, tipo, telefono);
+                        arregloEmp.set(iden-1001,emp);
+                    }else{
+                        emp = new Empresa(id+1, nombre, correo, tipo, telefono);
+                        arregloEmp.add(emp);
+                        id = id+1;
+                    }
                     Toast.makeText(Main2Activity.this,getResources().getString(R.string.correcto), Toast.LENGTH_SHORT).show();
-                    id = id+1;
                     sonar(tipo);
                     borrarCampos();
                 }
@@ -71,9 +83,22 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 guardarDatos(arregloEmp, id);
                 sonar(getResources().getString(R.string.maquina));
+                if(iden !=0 ){
+                    Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
+                    startActivity(intent);
+                }
                 finish();
             }
         });
+    }
+
+    private void cargarDatos(int iden) {
+        if(iden != 0){
+            etNom.setText(arregloEmp.get(iden-1001).getNombre());
+            etCor.setText(arregloEmp.get(iden-1001).getCorreo());
+            etTel.setText(arregloEmp.get(iden-1001).getTelefono());
+            sp.setSelection(idTipos(arregloEmp.get(iden-1001).getTipo()));
+        }
     }
 
     private void sonar(String tipo) {

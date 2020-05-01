@@ -1,13 +1,20 @@
 package com.example.listado;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.example.listado.empresas.Empresa;
 
@@ -19,6 +26,8 @@ public class Adaptador extends BaseAdapter {
     MediaPlayer mp;
     Context context;
     ArrayList<Empresa> datos;
+    SharedPreferences spr;
+    SharedPreferences.Editor editor;
 
     public Adaptador(Context context, ArrayList<Empresa> datos) {
         this.context = context;
@@ -44,11 +53,14 @@ public class Adaptador extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         final View vista = inflater.inflate(R.layout.elemento_lista,null);
+        spr = context.getSharedPreferences(context.getResources().getString(R.string.archivo), context.MODE_PRIVATE);
+        editor = spr.edit();
         TextView tvNombre = vista.findViewById(R.id.tvNombre);
         TextView tvCorreo = vista.findViewById(R.id.tvCorreo);
         TextView tvTelefono = vista.findViewById(R.id.tvTel);
         TextView tvTipo = vista.findViewById(R.id.tvTipo);
         ImageView imV = vista.findViewById(R.id.imV);
+        ImageView imViConf = vista.findViewById(R.id.imViConf);
 
         tvNombre.setText(datos.get(position).getNombre());
         tvCorreo.setText(datos.get(position).getCorreo());
@@ -61,6 +73,13 @@ public class Adaptador extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 sonar(datos.get(position).getTipo());
+            }
+        });
+
+        imViConf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarDialogo(position);
             }
         });
 
@@ -120,6 +139,26 @@ public class Adaptador extends BaseAdapter {
             }
         }
         return -1;
+    }
+
+    private ArrayList<Empresa> mostrarDialogo(final int position) {
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.importante)
+                .setMessage(R.string.editar)
+                .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(context, Main2Activity.class);
+                        intent.putExtra("id", datos.get(position).getId());
+                        context.startActivity(intent);
+                    }
+                })
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                }).show();
+        return datos;
     }
 
 }

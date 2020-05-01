@@ -45,12 +45,19 @@ public class Main3Activity extends AppCompatActivity {
         Adaptador adaptador = new Adaptador(Main3Activity.this, arregloEmp);
         lv.setAdapter(adaptador);
 
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(Main3Activity.this, getResources().getString(R.string.toastMensaje) + id, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 
     private void mostrarDialogo(int ida) {
