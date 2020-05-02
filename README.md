@@ -1,4 +1,4 @@
-Ejercicio 2 en Android.
+Ejercicio 2 en Android
 
 Realizar una aplicación que presente un listado dinámico de elementos. Los elementos deberán ser capturados por el usuario en un formulario con validaciones, permitiendo capturar tantos elementos como se deseen.
 
@@ -36,10 +36,9 @@ Para lo anterior, se debe crear también un prototipo de celda personalizado con
 
 Finalmente, al dar clic en algún elemento del listado se deberá mandar llamar un mensaje Toast que indique el ID del elemento seleccionado. Ejemplo: “El elemento seleccionado tiene el ID: 2354”.
 
-Extras que se agregaron:
-
-    Sonidos en los botones en el registro de empresas y en el listado al presionar el imageView.
-    La opción de borrar todos los registros hechos.
-	Existen diversos AlertDialog para confirmar acciones.
-	Está la opción de modificar los datos de cualquier empresa.
-	La aplicación tiene un icono que no es el que da Android Studio por defecto.
+## **Extras que se agregaron:**
+ - La opción de borrar todos los registros hechos.
+ - Sonidos en los botones en el registro de empresas y en el listado al presionar el imageView.
+ - Existen diversos AlertDialog para confirmar acciones. 
+ - Está la opción de modificar los datos de cualquier empresa. 
+ - La aplicación tiene un icono que no es el que da Android Studio por defecto.
