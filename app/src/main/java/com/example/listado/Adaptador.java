@@ -141,7 +141,7 @@ public class Adaptador extends BaseAdapter {
         return -1;
     }
 
-    private ArrayList<Empresa> mostrarDialogo(final int position) {
+    private void mostrarDialogo(final int position) {
         new AlertDialog.Builder(context)
                 .setTitle(R.string.importante)
                 .setMessage(R.string.editar)
@@ -149,7 +149,7 @@ public class Adaptador extends BaseAdapter {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(context, Main2Activity.class);
-                        intent.putExtra("id", datos.get(position).getId());
+                        intent.putExtra(context.getResources().getString(R.string.keyId), datos.get(position).getId());
                         context.startActivity(intent);
                     }
                 })
@@ -158,7 +158,6 @@ public class Adaptador extends BaseAdapter {
                     public void onClick(DialogInterface dialog, int which) {
                     }
                 }).show();
-        return datos;
     }
 
 }

@@ -37,7 +37,7 @@ public class Main3Activity extends AppCompatActivity {
         spr = getSharedPreferences(getResources().getString(R.string.archivo),MODE_PRIVATE);
         editor = spr.edit();
 
-        ida = spr.getInt("identificador", 1000);
+        ida = spr.getInt(getResources().getString(R.string.keyIdentificador), 1000);
         obtenerDatos();
 
         mostrarDialogo(ida);
@@ -86,13 +86,13 @@ public class Main3Activity extends AppCompatActivity {
         String nombre, correo, tipo, telefono;
         int identificador;
         if(ida !=1000){
-            int numElementos = ida- 1000;
+            int numElementos = ida - 1000;
             for(int i=0; i<numElementos; i++){
-                identificador = spr.getInt("id" + i,1000);
-                nombre = spr.getString("nombre" + i, getResources().getString(R.string.nombre));
-                correo = spr.getString("correo" + i,getResources().getString(R.string.correo));
-                tipo = spr.getString("tipo" + i,getResources().getString(R.string.tipo));
-                telefono = spr.getString("telefono" + i, getResources().getString(R.string.telefono));
+                identificador = spr.getInt(getResources().getString(R.string.nomId) + i,1000);
+                nombre = spr.getString(getResources().getString(R.string.nomNombre) + i, getResources().getString(R.string.nombre));
+                correo = spr.getString(getResources().getString(R.string.nomCorreo) + i,getResources().getString(R.string.correo));
+                tipo = spr.getString(getResources().getString(R.string.nomTipo) + i,getResources().getString(R.string.tipo));
+                telefono = spr.getString(getResources().getString(R.string.nomTelefono) + i, getResources().getString(R.string.telefono));
                 Empresa emp = new Empresa(identificador, nombre, correo, tipo, telefono);
                 arregloEmp.add(emp);
 

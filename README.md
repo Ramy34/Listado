@@ -42,3 +42,4 @@ Extras que se agregaron:
     La opción de borrar todos los registros hechos.
 	Existen diversos AlertDialog para confirmar acciones.
 	Está la opción de modificar los datos de cualquier empresa.
+	La aplicación tiene un icono que no es el que da Android Studio por defecto.

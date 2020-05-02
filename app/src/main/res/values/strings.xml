@@ -36,4 +36,13 @@
     <string name="editar">¿Deseas modificar el registro?</string>
     <string name="modificar">Modificar elemento</string>
     <string name="eliminar">Eliminar registro</string>
+    <string name="keyId" translatable="false">id</string>
+    <string name="keyIdentificador" translatable="false">identificador</string>
+    <string name="nomId" translatable="false">id</string>
+    <string name="nomNombre" translatable="false">nombre</string>
+    <string name="nomCorreo" translatable="false">Correo</string>
+    <string name="nomTelefono" translatable="false">telefono</string>
+    <string name="nomTipo" translatable="false">tipo</string>
+    <string name="idenCorreo" translatable="false">\@</string>
+    <string name="vacio" translatable="false"></string>
 </resources>

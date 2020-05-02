@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,11 +39,11 @@ public class Main2Activity extends AppCompatActivity {
         btnReg = findViewById(R.id.btnReg);
         sp = findViewById(R.id.sp);
 
-        final int iden = getIntent().getIntExtra("id",0);
+        final int iden = getIntent().getIntExtra(getResources().getString(R.string.keyId),0);
 
         spr = getSharedPreferences(getResources().getString(R.string.archivo),MODE_PRIVATE);
         editor = spr.edit();
-        id = spr.getInt("identificador", 1000);
+        id = spr.getInt(getResources().getString(R.string.keyIdentificador), 1000);
         obtenerDatos();
 
         String[] opciones = {getResources().getString(R.string.alimenticio), getResources().getString(R.string.automotriz),
@@ -138,23 +137,23 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     private void borrarCampos(){
-        etNom.setText("");
-        etCor.setText("");
-        etTel.setText("");
+        etNom.setText(getResources().getString(R.string.vacio));
+        etCor.setText(getResources().getString(R.string.vacio));
+        etTel.setText(getResources().getString(R.string.vacio));
     }
 
     private void guardarDatos(ArrayList arregloEmp, int id) {
         int numElementos = arregloEmp.size();
         for(int i = 0; i < numElementos; i++){
             Empresa emp = (Empresa) arregloEmp.get(i);
-            editor.putInt("id" + i, emp.getId());
-            editor.putString("nombre" + i, emp.getNombre());
-            editor.putString("correo" + i, emp.getCorreo());
-            editor.putString("tipo" + i, emp.getTipo());
-            editor.putString("telefono" + i, emp.getTelefono());
+            editor.putInt(getResources().getString(R.string.nomId) + i, emp.getId());
+            editor.putString(getResources().getString(R.string.nomNombre) + i, emp.getNombre());
+            editor.putString(getResources().getString(R.string.nomCorreo) + i, emp.getCorreo());
+            editor.putString(getResources().getString(R.string.nomTipo) + i, emp.getTipo());
+            editor.putString(getResources().getString(R.string.nomTelefono) + i, emp.getTelefono());
             editor.commit();
         }
-        editor.putInt("identificador",id);
+        editor.putInt(getResources().getString(R.string.keyIdentificador),id);
         editor.commit();
     }
 
@@ -164,11 +163,11 @@ public class Main2Activity extends AppCompatActivity {
         if(id !=1000){
             int numElementos = id - 1000;
             for(int i=0; i<numElementos; i++){
-                identificador = spr.getInt("id" + i,1000);
-                nombre = spr.getString("nombre" + i, getResources().getString(R.string.nombre));
-                correo = spr.getString("correo" + i,getResources().getString(R.string.correo));
-                tipo = spr.getString("tipo" + i,getResources().getString(R.string.tipo));
-                telefono = spr.getString("telefono" + i, getResources().getString(R.string.telefono));
+                identificador = spr.getInt(getResources().getString(R.string.nomId) + i,1000);
+                nombre = spr.getString(getResources().getString(R.string.nomNombre) + i, getResources().getString(R.string.nombre));
+                correo = spr.getString(getResources().getString(R.string.nomCorreo) + i,getResources().getString(R.string.correo));
+                tipo = spr.getString(getResources().getString(R.string.nomTipo) + i,getResources().getString(R.string.tipo));
+                telefono = spr.getString(getResources().getString(R.string.nomTelefono) + i, getResources().getString(R.string.telefono));
                 Empresa emp = new Empresa(identificador, nombre, correo, tipo, telefono);
                 arregloEmp.add(emp);
 
@@ -181,7 +180,7 @@ public class Main2Activity extends AppCompatActivity {
             etNom.setError(getResources().getString(R.string.error));
             return false;
         }
-        if(correo.length() == 0 || !(correo.contains("@"))){
+        if(correo.length() == 0 || !(correo.contains(getResources().getString(R.string.idenCorreo)))){
             etCor.setError(getResources().getString(R.string.errorCor));
             return false;
         }
@@ -191,14 +190,4 @@ public class Main2Activity extends AppCompatActivity {
         }
         return true;
     }
-
-    /*private void mostrarArreglo(){
-        int tamano = arregloEmp.size();
-        for(int i=0; i < tamano; i++){
-            Log.d("TAMANO","El id es: " + arregloEmp.get(i).getId());
-            Log.d("TAMANO","El correo es: " + arregloEmp.get(i).getCorreo());
-            Log.d("TAMANO","El teléfono es: " + arregloEmp.get(i).getTelefono());
-            Log.d("TAMANO","El tipo es: " + arregloEmp.get(i).getTipo());
-        }
-    }*/
 }

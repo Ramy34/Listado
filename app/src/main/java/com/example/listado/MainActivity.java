@@ -11,10 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.listado.empresas.Empresa;
-
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
 
     Button btnR, btnC, btnBor;
@@ -72,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, R.string.mensajeNo, Toast.LENGTH_SHORT).show();
                     }
                 }).show();
     }
