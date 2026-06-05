@@ -1,44 +1,42 @@
-Ejercicio 2 en Android
+# Proyecto Listado: Directorio de Empresas en Android
 
-Realizar una aplicación que presente un listado dinámico de elementos. Los elementos deberán ser capturados por el usuario en un formulario con validaciones, permitiendo capturar tantos elementos como se deseen.
+Esta es una aplicación nativa para Android desarrollada en Java que permite capturar, gestionar y visualizar un listado dinámico de empresas. Fue desarrollada originalmente como parte de un ejercicio práctico, evolucionando para incluir múltiples funcionalidades extra.
 
-El tipo de elementos será definido por el desarrollador sobre cualquier tema que le interese.
+## 📋 Características Principales
 
-Ejemplos:
+- **Registro de Empresas:** Formulario con validación de datos para registrar una empresa capturando:
+  - Nombre de la empresa
+  - Correo electrónico (con validación de formato)
+  - Teléfono (con validación de longitud/formato)
+  - Tipo de industria (Alimenticio, Automotriz, Entretenimiento, Farmacéutico) mediante un menú desplegable (Spinner).
+- **Listado Dinámico:** Las empresas registradas se despliegan en una lista que utiliza un adaptador personalizado (`Adaptador.java`).
+- **Diseño Personalizado de Celdas:** Cada elemento en la lista muestra la información de la empresa e incluye un ícono (`ImageView`) dinámico que cambia dependiendo del sector al que se dedique la empresa.
+- **Interactividad Multimedia:** Al presionar el ícono representativo de la empresa en la lista, se reproduce un efecto de sonido correspondiente a su rubro utilizando `MediaPlayer`.
+- **Persistencia de Datos:** El almacenamiento de los registros se gestiona localmente utilizando `SharedPreferences`.
 
-    Automóviles
-    Películas
-    Videojuegos
-    Deportes
-    Artistas
+## ⭐ Funcionalidades Extra Implementadas
 
-La aplicación deberá implementar una clase para el tipo de elementos, como se ha visto en el taller con la clase Alumno o la clase Anime.
+Además de los requisitos básicos de captura y listado, la aplicación cuenta con los siguientes agregados:
 
-El desarrollador puede definir la cantidad de detalles a capturar por cada elemento. Ejemplo:
+1. **Gestión de Registros (Modificación y Eliminación):** 
+   - Permite modificar los datos de cualquier empresa existente tocando el ícono de configuración en su celda.
+   - Opción general para borrar **todos** los registros almacenados.
+2. **Diálogos de Confirmación:** Se utilizan ventanas de diálogo (`AlertDialog`) para prevenir acciones accidentales (ej. al modificar un registro o al intentar borrar toda la lista).
+3. **Validaciones Estrictas:** Alertas y mensajes de error dinámicos ("Número inválido", "Correo inválido", "Dato necesario") si el usuario intenta guardar información incompleta.
+4. **Interfaz Mejorada:** Cuenta con un ícono de aplicación personalizado (distinto al de por defecto de Android Studio) y mensajes interactivos (Toast) para notificar el éxito de las operaciones o mostrar el ID interno del registro.
 
-Para una película:
+## 🛠️ Tecnologías y Componentes
 
-    ID (no se capturará, pero debe ser parte de cada elemento y diferente para cada uno)
-    Título
-    Género
-    Año
-    Calificación
+- **Lenguaje:** Java
+- **UI:** XML, ListView, adaptadores personalizados (BaseAdapter), AlertDialogs, Spinners.
+- **Almacenamiento:** SharedPreferences (guardado mediante `datos.txt`).
+- **Multimedia:** `MediaPlayer` para los efectos de sonido integrados (`raw/alimenticio`, `raw/carreras`, `raw/cine`, `raw/farmaceutico`, `raw/maquina`).
 
-Por lo menos se deberán capturar 3 detalles (sin incluir el ID) y uno de ellos mediante un Spinner o menú desplegable (Dropdown menu) con opciones finitas y definidas.
+## 🚀 Estructura de Datos (Empresa)
 
-Ejemplo 1: Para la captura de automóviles, se puede capturar la marca con opciones definidas como: Ford, Volkswagen, Nissan y Toyota.
-
-Ejemplo 2: Para la captura de películas, se puede capturar el género con opciones definidas como: Comedia, Terror, Drama, Romance y Animación.
-
-Así también, la aplicación deberá mostrar un botón para que al final se puedan desplegar todos los elementos dados de alta en otro Activity mediante un ListView o contenedor similar.
-
-Para lo anterior, se debe crear también un prototipo de celda personalizado con lo que el desarrollador considere necesario, pero que tenga por lo menos un elemento de imagen (ImageView) que cambie con respecto a lo que el usuario capturó con el Spinner. Ejemplo: para el caso de los automóviles pueden mostrar ahí el logo de la marca o en el caso de las películas alguna imagen referente al género de cada película. 
-
-Finalmente, al dar clic en algún elemento del listado se deberá mandar llamar un mensaje Toast que indique el ID del elemento seleccionado. Ejemplo: “El elemento seleccionado tiene el ID: 2354”.
-
-## **Extras que se agregaron:**
- - La opción de borrar todos los registros hechos.
- - Sonidos en los botones en el registro de empresas y en el listado al presionar el imageView.
- - Existen diversos AlertDialog para confirmar acciones. 
- - Está la opción de modificar los datos de cualquier empresa. 
- - La aplicación tiene un icono que no es el que da Android Studio por defecto.
+El modelo principal (`Empresa.java`) maneja los siguientes atributos internos por cada registro:
+- `ID` (Generado internamente)
+- `Nombre`
+- `Correo`
+- `Teléfono`
+- `Tipo`
